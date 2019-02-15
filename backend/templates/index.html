@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Manatee Matinees </title>
+</head>
+<body>
+<div class="main">
+    <h1> Manatee Matinees </h1>
+    <h2> Rate these movies! </h2>
+    <form action="{{ url_for('rate') }}" method="post">
+        <table>
+            {% set ind = 0 %}
+            {% set ind = ind+1 %}
+            {% for name in names %}
+            <tr>
+                <td>{{name}}</td>
+                <td><input type="number" name={{ "rate" ~ loop.index }}></td>
+                {% set ind = ind+1 %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
